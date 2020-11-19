@@ -8,3 +8,6 @@ Required modules can be installed from an elevated command prompt on Windows mac
 Or on Linux machines with:
 
     # python -m pip install -r requirements.txt
+
+A TVDB API Key is required for this to work with TV Shows.  
+Sign up for one here: https://thetvdb.com/api-information
