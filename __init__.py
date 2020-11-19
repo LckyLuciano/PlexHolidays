@@ -1,5 +1,7 @@
-# Austin Hasten
+# Original Creator: Austin Hasten
 # Initial Commit - November 16th, 2017
+# Edited By: Luke Luciano
+# Last Modified: 2020-11-18
 import re, sys, logging, itertools
 import tvdb_api
 import plexapi.utils
@@ -54,8 +56,8 @@ class PlexHolidays():
         logging.getLogger('imdbpy').disabled = True
         logging.getLogger('imdbpy.parser.http.urlopener').disabled = True
         self.imdbpy = IMDb()
-        self.tvdb = tvdb_api.Tvdb()
         self.plex = Plex()
+        self.tvdb = tvdb_api.Tvdb(apikey=input('TVDB API Key: ')) #added input for TVDB API key - required with new API version
         self.keyword = input('Keyword (i.e. Holiday name): ').lower()
         self.pbar = tqdm(self.plex.media, desc=f'{self.plex.section.title}')
         self.results = ThreadPool(10).map(self.find_matches, self.plex.media)
